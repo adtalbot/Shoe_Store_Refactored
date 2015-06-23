@@ -1,0 +1,16 @@
+<h1>Shoe Store App</h1>
+
+<% @stores.each() do |store| %>
+<ul>
+  <li><a href='/stores/<%= store.id() %>'><%=store.name() %></a></li>
+</ul>
+<% end %>
+
+<h5>Add Store</h5>
+
+<form action='/' method=post>
+  <div class='form-group'>
+    <input id='name' name='name' type='text'>
+  </div>
+  <button type='submit' class='btn btn-success'>Add</button>
+</form>
