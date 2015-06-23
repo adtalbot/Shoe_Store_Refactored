@@ -11,4 +11,10 @@ describe(Store) do
       expect(test_store.name.capitalize()).to(eq('Champs'))
     end
   end
+  describe('#validation') do
+    it('validates the presence of store name') do
+      test_store = Store.new({:name => ""})
+      expect(test_store.save()).to(eq(false))
+    end
+  end
 end
