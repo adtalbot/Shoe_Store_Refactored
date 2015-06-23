@@ -11,4 +11,10 @@ describe(Shoe) do
       expect(test_shoe.name.capitalize()).to(eq('Nike'))
     end
   end
+  describe('#validation') do
+    it('validates the presence of shoe name') do
+      test_shoe = Shoe.new({:name => ""})
+      expect(test_shoe.save()).to(eq(false))
+    end
+  end
 end
