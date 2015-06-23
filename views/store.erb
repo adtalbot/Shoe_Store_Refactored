@@ -1,1 +1,20 @@
 <h1><%= @store.name %></h1>
+
+
+<h3>Add shoes to this store's inventory:</h3>
+
+<% if @shoes.any?() %>
+  <form action='/stores/<%= @store.id() %>' method='post'>
+    <input type='hidden' name='_method' value='patch'>
+    <% @shoes.each() do |shoe| %>
+      <div class='checkbox'>
+        <label>
+          <input type='checkbox' name='shoe_ids[]' value='<%= shoe.id() %>'><%= shoe.name() %>
+        </label>
+      </div>
+      <% end %>
+    </form>
+    <br>
+    <button type='submit'>Add</button>
+
+    <% end %>

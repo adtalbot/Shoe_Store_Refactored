@@ -18,3 +18,8 @@ get('/stores/:id') do
   @store = Store.find(params.fetch('id').to_i())
   erb(:store)
 end
+
+get('/shoes') do
+  @shoes = Shoe.all()
+  erb(:shoes)
+end
