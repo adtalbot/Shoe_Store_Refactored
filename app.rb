@@ -12,3 +12,9 @@ post('/') do
   store = Store.create({:name => name, :id => nil})
   redirect back
 end
+
+get('/stores/:id') do
+  @shoes = Shoe.all()
+  @store = Store.find(params.fetch('id').to_i())
+  erb(:store)
+end
