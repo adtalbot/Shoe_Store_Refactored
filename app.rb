@@ -23,3 +23,16 @@ get('/shoes') do
   @shoes = Shoe.all()
   erb(:shoes)
 end
+
+post('/shoes') do
+  name = params.fetch('name')
+  shoe = Shoe.create({:name => name, :id => nil})
+  redirect back
+end
+
+get('/shoes/:id') do
+  @stores = Store.all()
+  @shoe = Shoe.find(params.fetch('id').to_i())
+  erb(:shoe)
+end
+  
